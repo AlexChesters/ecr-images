@@ -11,6 +11,7 @@ batch:
 phases:
   build:
     commands:
+      - cd "src/$IMAGE_NAME"
       - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 008356366354.dkr.ecr.eu-west-1.amazonaws.com
       - docker build -t "alexchesters/$IMAGE_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION" .
       - docker tag "alexchesters/$IMAGE_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION" "008356366354.dkr.ecr.eu-west-1.amazonaws.com/$IMAGE_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION"
