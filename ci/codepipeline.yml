@@ -96,5 +96,19 @@ Resources:
                 Capabilities: CAPABILITY_NAMED_IAM
                 StackName: ecr-images
                 RoleArn: !ImportValue core-infrastructure-global-codepipeline-cloudformation-role-arn
-                TemplatePath: GitHubSource::api/stacks/infrastructure.yml
-                TemplateConfiguration: GitHubSource::api/stacks/parameters/infrastructure.json
+                TemplatePath: GitHubSource::stacks/infrastructure.yml
+                TemplateConfiguration: GitHubSource::stacks/parameters/infrastructure.json
+        - Name: Build-Images
+          Actions:
+            - ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: "1"
+                Provider: CodeBuild
+              InputArtifacts:
+                - Name: GitHubSource
+              RunOrder: 1
+              Name: Build
+              Configuration:
+                BatchEnabled: true
+                ProjectName: !Ref CodeBuildProject
