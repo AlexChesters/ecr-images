@@ -1,0 +1,22 @@
+Description: Infrastructure for ecr-images
+Resources:
+  NodeJSRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: nodejs
+      LifecyclePolicy:
+        LifecyclePolicyText: |
+          {
+            "rules": [
+              {
+                "rulePriority": 1,
+                "description": "Only keep 5 images",
+                "selection": {
+                  "tagStatus": "untagged",
+                  "countType": "imageCountMoreThan",
+                  "countNumber": 5
+                },
+                "action": { "type": "expire" }
+              }
+            ]
+          }

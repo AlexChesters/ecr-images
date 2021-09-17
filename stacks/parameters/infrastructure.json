@@ -1,0 +1,7 @@
+{
+  "Parameters": {},
+  "Tags": {
+    "Project": "ecr-images",
+    "Environment": "live"
+  }
+}
