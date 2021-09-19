@@ -12,7 +12,7 @@ Resources:
                 "rulePriority": 1,
                 "description": "Only keep 5 images",
                 "selection": {
-                  "tagStatus": "untagged",
+                  "tagStatus": "any",
                   "countType": "imageCountMoreThan",
                   "countNumber": 5
                 },
