@@ -77,7 +77,7 @@ Resources:
               Namespace: SourceVariables
               Configuration:
                 ConnectionArn: !ImportValue core-infrastructure-eu-west-1-codestar-github-connection-arn
-                FullRepositoryId: alexchesters/ecr-images
+                FullRepositoryId: AlexChesters/ecr-images
                 BranchName: main
                 OutputArtifactFormat: CODE_ZIP
         - Name: Deploy-CloudFormation
